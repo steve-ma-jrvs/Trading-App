@@ -1,8 +1,11 @@
 .DS_Store
 .classpath
+.idea/
 .idea/misc.xml
 .idea/workspace.xml
 .project
+output/
 .settings/
 target/
+*.log
 .idea/codeStyles .idea/compiler.xml .idea/encodings.xml .idea/misc.xml .idea/uiDesigner.xml .idea/vcs.xml .idea/workspace.xml
