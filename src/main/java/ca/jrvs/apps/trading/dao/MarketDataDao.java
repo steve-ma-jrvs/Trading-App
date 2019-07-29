@@ -29,9 +29,8 @@ public class MarketDataDao {
   private static final String API_BASE_URI_BATCH = "https://cloud.iexapis.com/stable/stock/market/batch?symbols";
   private static final String QUOTE = "types=quote";
   private static final String SHOW_PATH = "/quote";
-  //private static final String DELETE_PATH = "/1.1/statuses/destroy";
-
-  private static final String TOKEN_PATH = "token=pk_7f81ceac3d7643cd9aae732e6662121c";
+  private static final String IEX_PUB_TOKEN = System.getenv("IEX_PUB_TOKEN");
+  private static final String TOKEN_PATH = "token=";
 
   //Response code
   private static final int HTTP_OK = 200;
@@ -97,7 +96,8 @@ public class MarketDataDao {
         .append(AMPERSAND)
         .append(QUOTE)
         .append(AMPERSAND)
-        .append(TOKEN_PATH);
+        .append(TOKEN_PATH)
+        .append(IEX_PUB_TOKEN);
 
     return new URI(sb.toString());
   }
@@ -111,7 +111,6 @@ public class MarketDataDao {
       throw new IllegalArgumentException("Unable to construct URI", e);
     }
 
-    //Deser JSON string to IexQuote object
     IexQuote iexQuote;
     try {
       iexQuote = (IexQuote) JsonUtil.toObjectFromJson(HttpGet(uri), IexQuote.class);
@@ -128,7 +127,8 @@ public class MarketDataDao {
         .append(ticker)
         .append(SHOW_PATH)
         .append(QUERY_SYM)
-        .append(TOKEN_PATH);
+        .append(TOKEN_PATH)
+        .append(IEX_PUB_TOKEN);
 
     return new URI(sb.toString());
   }

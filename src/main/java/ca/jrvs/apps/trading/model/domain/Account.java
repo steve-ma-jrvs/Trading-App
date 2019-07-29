@@ -12,9 +12,15 @@ public class Account implements Entity<Integer> {
 
   }
 
+  public Account(Integer id, Integer trader_id, double amount) {
+    this.id = id;
+    this.trader_id = trader_id;
+    this.amount = amount;
+  }
+
   public Account(Integer trader_id) {
     this.trader_id = trader_id;
-    this.amount = 0;
+    this.amount = 0.0;
   }
 
   @Override

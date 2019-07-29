@@ -19,6 +19,7 @@ public class AppConfig {
     return cm;
   }
 
+
   @Bean
   public DataSource dataSource() {
     String JDBC_URL = System.getenv("PSQL_URL");

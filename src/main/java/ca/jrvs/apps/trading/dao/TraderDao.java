@@ -73,6 +73,6 @@ public class TraderDao implements CrudRepository<Trader, Integer> {
     if (id == null) {
       throw new IllegalArgumentException("ID can't be null");
     }
-    jdbcTemplate.update("delete from " + TABLE_NAME + "where id = ?", id);
+    jdbcTemplate.update("delete from " + TABLE_NAME + " where id = ?", id);
   }
 }

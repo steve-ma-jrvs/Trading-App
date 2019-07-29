@@ -55,6 +55,4 @@ public class SwaggerConfig {
         .validatorUrl(null)
         .build();
   }
-
-
 }

@@ -5,19 +5,15 @@ import ca.jrvs.apps.trading.dao.PositionDao;
 import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.dao.SecurityOrderDao;
 import ca.jrvs.apps.trading.model.domain.Account;
-import ca.jrvs.apps.trading.model.domain.OrderStatus;
 import ca.jrvs.apps.trading.model.domain.Quote;
 import ca.jrvs.apps.trading.model.domain.SecurityOrder;
 import ca.jrvs.apps.trading.model.dto.MarketOrderDto;
-import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class OrderService {
 
   private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
@@ -97,7 +93,7 @@ public class OrderService {
     Double amount = account.getAmount();
     Double sellPrice = securityOrder.getPrice() * securityOrder.getSize();
     Long position = positionDao.findByIdAndTicker(account.getId(), securityOrder.getTicker());
-    if (position > securityOrder.getSize()) {
+    if (position >= Math.abs(securityOrder.getSize())) {
       securityOrder.setStatus("FILLED");
       securityOrder.setNotes(null);
       accountDao.updateAmountById(account.getId(), amount - sellPrice);

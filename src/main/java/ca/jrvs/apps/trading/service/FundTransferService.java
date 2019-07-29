@@ -1,14 +1,11 @@
 package ca.jrvs.apps.trading.service;
 
 import ca.jrvs.apps.trading.dao.AccountDao;
-import ca.jrvs.apps.trading.dao.ResourceNotFoundException;
 import ca.jrvs.apps.trading.model.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class FundTransferService {
 
   private AccountDao accountDao;
@@ -38,7 +35,7 @@ public class FundTransferService {
     if (fund <= 0) {
       throw new IllegalArgumentException("fund can't be 0 or less");
     }
-    Account account = accountDao.findByTraderId(traderId);
+    Account account = accountDao.findByTraderIdForUpdate(traderId);
     Integer accountID = account.getId();
     Double accountAmount = account.getAmount();
     accountDao.updateAmountById(accountID, accountAmount + fund);
@@ -66,7 +63,7 @@ public class FundTransferService {
     if (fund <= 0) {
       throw new IllegalArgumentException("fund can't be 0 or less");
     }
-    Account account = accountDao.findByTraderId(traderId);
+    Account account = accountDao.findByTraderIdForUpdate(traderId);
     Integer accountID = account.getId();
     Double accountAmount = account.getAmount();
     if (fund > accountAmount) {
