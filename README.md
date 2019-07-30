@@ -11,10 +11,10 @@ buying and selling stocks. Front-end and mobile developer could utilize this RES
   - [Swagger](https://swagger.io/)
 ## Quick Start
 - Prerequisite:
-  - CentOS 7  
-  - Java 8  
-  - Docker (17.05 or higher which support multi-stage build)  
-  - IEX token for getting market data (https://iexcloud.io/docs/api/)  
+  - CentOS 7
+  - Java 8
+  - Docker (17.05 or higher which support multi-stage build)
+  - IEX token for getting market data (https://iexcloud.io/docs/api/)
 - PSQL init:
 - git clone and mvn build
 - Start Springboot app using a shell script
@@ -56,13 +56,38 @@ Also, it could deposit and withdraw fund from a given account.
   - GET `/dashboard/profile/traderId/{traderId}`: Show trader profile by trader ID
 
 ## Architecture
-- Draw a component diagram which contains controller, service, DAO, storage layers (you can mimic the diagram from the guide)
-- briefly explain the following logic layers or components (3-5 sentences for each)
-  - Controller 
-  - Service
-  - Dao
-  - SpringBoot: webservlet/TomCat and IoC
-  - PSQL and IEX
+- Component diagram
+[image](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/Architecture%20Design.png)
+- Controller layer
+  - Controllers receive input, and generate output. They would handle the navigation between the different views.
+  - In this app, it has 5 controllers in total
+    - `AppController`
+    - `DashboardController`
+    - `OrderController`
+    - `QuoteController`
+    - `TraderController`
+  - Each of them implement different services
+- Service layer
+  - The service layer stands on DAO to handle business requirements.
+  - Inside the service, we could design different business logic such as implementing validations, constraints and so on.
+  - In this app, it has 5 services in total
+    - `FundTransferService`
+    - `DashboardService`
+    - `OrderService`
+    - `QuoteService`
+    - `RegisterService`
+- Dao layer
+  - DAO stands for data access object. It provides a CRUD interface for a single entity.
+  - In this app, it will handle the data transaction with the PSQL database by utilizing `DataSource` and `Connection Manager`.
+  - It has 6 DAOs in total
+    - `AccountDao`
+    - `MarketDataDao`
+    - `PositionDao`
+    - `QuoteDao`
+    - `SecurityOrderDao`
+    - `TraderDao`
+- SpringBoot: webservlet/TomCat and IoC
+- PSQL and IEX
 
 ## Improvements
 - at least 5 improvements
