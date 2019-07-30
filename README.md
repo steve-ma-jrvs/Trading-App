@@ -1,4 +1,22 @@
 # Trading App
+## Overview
+1. [Introduction](##Introduction)
+2. [Quick Start](##Quick-Start)
+3. [REST API Usage](##REST-API-Usage)
+   * [Swagger](###Swagger)
+   * [App controller](###App-controller)
+   * [Quote Controller](###Quote-Controller)
+   * [Trader Controller](###Trader-Controller)
+   * [Order Controller](###Order-Controller)
+   * [Dashboard Controller](###Dashboard-Controller)
+4. [Architecture](##Architecture)
+   * [Component diagram](###Component-diagram)
+   * [Controller layer](###Controller-layer)
+   * [Service layer](###Service-layer)
+   * [Dao layer](###Dao-layer)
+   * [SpringBoot](###SpringBoot)
+   * [PSQL and IEX](###PSQL-and-IEX)
+5. [Improvements](##Improvements)
 ## Introduction
 - This Trading App is an online stock trading simulation REST API which can register accounts, update amounts, quote & update stock info 
 and trade stocks with virtual amounts.
@@ -56,38 +74,39 @@ Also, it could deposit and withdraw fund from a given account.
   - GET `/dashboard/profile/traderId/{traderId}`: Show trader profile by trader ID
 
 ## Architecture
-- Component diagram
-[image](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/Architecture%20Design.png)
-- Controller layer
-  - Controllers receive input, and generate output. They would handle the navigation between the different views.
-  - In this app, it has 5 controllers in total
-    - `AppController`
-    - `DashboardController`
-    - `OrderController`
-    - `QuoteController`
-    - `TraderController`
-  - Each of them implement different services
-- Service layer
-  - The service layer stands on DAO to handle business requirements.
-  - Inside the service, we could design different business logic such as implementing validations, constraints and so on.
-  - In this app, it has 5 services in total
-    - `FundTransferService`
-    - `DashboardService`
-    - `OrderService`
-    - `QuoteService`
-    - `RegisterService`
-- Dao layer
-  - DAO stands for data access object. It provides a CRUD interface for a single entity.
-  - In this app, it will handle the data transaction with the PSQL database by utilizing `DataSource` and `Connection Manager`.
-  - It has 6 DAOs in total
+### Component diagram
+![image](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/Architecture%20Design.png)
+### Controller layer
+- Controllers receive input, and generate output. They would handle the navigation between the different views.
+- In this app, it has 5 controllers in total
+  - `AppController`
+  - `DashboardController`
+  - `OrderController`
+  - `QuoteController`
+  - `TraderController`
+- Each of them implement different services
+### Service layer
+- The service layer stands on DAO to handle business requirements.
+- Inside the service, we could design different business logic such as implementing validations, constraints and so on.
+- In this app, it has 5 services in total
+  - `FundTransferService`
+  - `DashboardService`
+  - `OrderService`
+  - `QuoteService`
+  - `RegisterService`
+### Dao layer
+- DAO stands for data access object. It provides a CRUD interface for a single entity.
+- In this app, it will handle the data transaction with the PSQL database by utilizing `DataSource` and `Connection Manager`.
+- It has 6 DAOs in total
     - `AccountDao`
     - `MarketDataDao`
     - `PositionDao`
     - `QuoteDao`
     - `SecurityOrderDao`
     - `TraderDao`
-- SpringBoot: webservlet/TomCat and IoC
-- PSQL and IEX
+### SpringBoot
+- webservlet/TomCat and IoC
+### PSQL and IEX
 
 ## Improvements
 - at least 5 improvements
