@@ -17,6 +17,8 @@
    * [SpringBoot](###SpringBoot)
    * [PSQL and IEX](###PSQL-and-IEX)
 5. [Improvements](##Improvements)
+<!-- toc -->
+
 ## Introduction
 - This Trading App is an online stock trading simulation REST API which can register accounts, update amounts, quote & update stock info 
 and trade stocks with virtual amounts.
