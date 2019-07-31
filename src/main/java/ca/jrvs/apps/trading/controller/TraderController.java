@@ -75,7 +75,7 @@ public class TraderController {
 
   @ResponseStatus(HttpStatus.OK)
   @ResponseBody
-  @PostMapping(path = "/deposit/accountId/{accountId}/amount/{amount}",
+  @PostMapping(path = "/deposit/accountId/{accountID}/amount/{amount}",
       produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
   public Account depositFund(@PathVariable Integer accountID, @PathVariable double amount) {
     try {
@@ -88,7 +88,7 @@ public class TraderController {
 
   @ResponseStatus(HttpStatus.OK)
   @ResponseBody
-  @PostMapping(path = "/withdraw/accountId/{accountId}/amount/{amount}",
+  @PostMapping(path = "/withdraw/accountId/{accountID}/amount/{amount}",
       produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
   public Account withdrawFund(@PathVariable Integer accountID, @PathVariable double amount) {
     try {

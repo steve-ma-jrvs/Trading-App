@@ -1,22 +1,22 @@
 # Trading App
 ## Overview
-1. [Introduction](##Introduction)
-2. [Quick Start](##Quick-Start)
-3. [REST API Usage](##REST-API-Usage)
-   * [Swagger](###Swagger)
-   * [App controller](###App-controller)
-   * [Quote Controller](###Quote-Controller)
-   * [Trader Controller](###Trader-Controller)
-   * [Order Controller](###Order-Controller)
-   * [Dashboard Controller](###Dashboard-Controller)
-4. [Architecture](##Architecture)
-   * [Component diagram](###Component-diagram)
-   * [Controller layer](###Controller-layer)
-   * [Service layer](###Service-layer)
-   * [Dao layer](###Dao-layer)
-   * [SpringBoot](###SpringBoot)
-   * [PSQL and IEX](###PSQL-and-IEX)
-5. [Improvements](##Improvements)
+1. [Introduction](#Introduction)
+2. [Quick Start](#Quick-Start)
+3. [REST API Usage](#REST-API-Usage)
+   * [Swagger](#Swagger)
+   * [App controller](#App-controller)
+   * [Quote Controller](#Quote-Controller)
+   * [Trader Controller](#Trader-Controller)
+   * [Order Controller](#Order-Controller)
+   * [Dashboard Controller](#Dashboard-Controller)
+4. [Architecture](#Architecture)
+   * [Component diagram](#Component-diagram)
+   * [Controller layer](#Controller-layer)
+   * [Service layer](#Service-layer)
+   * [Dao layer](#Dao-layer)
+   * [SpringBoot](#SpringBoot)
+   * [PSQL and IEX](#PSQL-and-IEX)
+5. [Improvements](#Improvements)
 <!-- toc -->
 
 ## Introduction
@@ -40,6 +40,11 @@ buying and selling stocks. Front-end and mobile developer could utilize this RES
 - Start Springboot app using a shell script
   - describe env vars
 - How to consume REST API? (Swagger screenshot and postman with OpenAPI Specification, e.g. http://35.231.122.184:5000/v2/api-docs
+- trading_app docker diagram including:
+ - images (dockerhub and local)
+ - bridege network
+ - containers
+ - label commands
 
 ## REST API Usage
 ### Swagger
