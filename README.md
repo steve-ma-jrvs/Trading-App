@@ -59,18 +59,32 @@ mvn -f pom.xml clean package -DskipTests
 cd scripts
 sudo bash run_trading_app.sh {PSQL_HOST} {PSQL_USER} {PSQL_PASSWORD} {IEX_PUB_TOKEN}
 #verify health
-curl localhost:5000/health
+curl localhost:8080/health
 #verify Swagger UI from your browser
-localhost:5000/swagger-ui.html
+localhost:8080/swagger-ui.html
 ```
-  - describe env vars
-- How to consume REST API? (Swagger screenshot and postman with OpenAPI Specification, e.g. http://35.231.122.184:5000/v2/api-docs
+  - `run_trading_app.sh` env vars:
+    - {PSQL_HOST} : `localhost`
+    - {PSQL_USER} : `postgres`
+    - {PSQL_PASSWORD} : your password
+    - {IEX_PUB_TOKEN} : your IEX_TOKEN
+- Consume REST API
+  - Swagger-UI interface diagram
+  - Todo
+  - REST API Implementation
+    - By default, Ticker `AAPL` is added in the dailyList
+    - We could retrieve the dailyList quote by URL
+    - Todo
 - trading_app docker diagram including:
- - images (dockerhub and local)
- - bridege network
- - containers
- - label commands
-
+    - Diagram Todo
+    - bridge network
+        - create network bridge between SpringBoot app and postgreSQL
+    - containers
+        - PSQL container
+        - Trading_App container
+    - label commands
+        - Implementation details plz visit the following REPO
+        - [Cloud DevOps](https://github.com/steve-ma-jrvs/cloud_DevOps)
 ## REST API Usage
 ### Swagger
 - Swagger is a powerful yet easy-to-use suite of API developer tools for teams and individuals, enabling development across the entire API lifecycle, from design and documentation, to test and deployment.
