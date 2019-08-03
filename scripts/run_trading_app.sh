@@ -2,18 +2,17 @@
 set -e
 cd "$(dirname "$0")"
 
-ls lib/trading-1.0-SNAPSHOT.jar
+ls ../target/trading-1.0-SNAPSHOT.jar
 
-if [[ "$#" -ne 5 ]]; then
+if [[ "$#" -ne 4 ]]; then
     echo "Illegal number of parameters"
     exit 1
 fi
 
-export SPRING_PROFILES_ACTIVE=$1
-export PSQL_HOST=$2
-export PSQL_USER=$3
-export PSQL_PASSWORD=$4
-export IEX_PUB_TOKEN=$5
+export PSQL_HOST=$1
+export PSQL_USER=$2
+export PSQL_PASSWORD=$3
+export IEX_PUB_TOKEN=$4
 export PGPASSWORD=$PSQL_PASSWORD
 export PSQL_URL="jdbc:postgresql://${PSQL_HOST}:5432/jrvstrading"
 
@@ -34,4 +33,4 @@ psql -h $PSQL_HOST -U $PSQL_USER -f ./sql_ddl/init_db.sql
 psql -h $PSQL_HOST -U $PSQL_USER -d jrvstrading -f ./sql_ddl/schema.sql
 
 #run springboot app
-/usr/bin/java -jar ./lib/trading-1.0-SNAPSHOT.jar
+/usr/bin/java -jar ../target/trading-1.0-SNAPSHOT.jar

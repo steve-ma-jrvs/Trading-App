@@ -38,16 +38,29 @@ buying and selling stocks. Front-end and mobile developer could utilize this RES
 - PSQL init:
 ```shell script
 #start docker
-systemctl status docker || systemctl start docker
+sudo systemctl status docker || sudo systemctl start docker || sleep 5
+#pull PostgreSQL image
+sudo docker pull postgres
 #create docker volume to persist db data
-docker volume ls | grep "pgdata" || docker volume create pgdata || sleep 1
+sudo docker volume ls | grep "pgdata" || sudo docker volume create pgdata || sleep 1
 ```
 - git clone and mvn build
 ```shell script
 sudo yum install -y git
 git clone https://github.com/steve-ma-jrvs/Trading-App.git
+cd Trading-App
+sudo yum install -y maven
+mvn -f pom.xml clean package -DskipTests
 ```
 - Start Springboot app using a shell script
+```shell script
+cd scripts
+sudo bash run_trading_app.sh {PSQL_HOST} {PSQL_USER} {PSQL_PASSWORD} {IEX_PUB_TOKEN}
+#verify health
+curl localhost:5000/health
+#verify Swagger UI from your browser
+localhost:5000/swagger-ui.html
+```
   - describe env vars
 - How to consume REST API? (Swagger screenshot and postman with OpenAPI Specification, e.g. http://35.231.122.184:5000/v2/api-docs
 - trading_app docker diagram including:
