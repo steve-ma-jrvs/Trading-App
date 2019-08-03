@@ -43,6 +43,8 @@ sudo systemctl status docker || sudo systemctl start docker || sleep 5
 sudo docker pull postgres
 #create docker volume to persist db data
 sudo docker volume ls | grep "pgdata" || sudo docker volume create pgdata || sleep 1
+#install psql CLI
+sudo yum install -y postgresql
 ```
 - git clone and mvn build
 ```shell script

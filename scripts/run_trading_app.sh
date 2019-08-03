@@ -29,8 +29,8 @@ docker ps | grep jrvs-psql && docker stop $(docker ps | grep jrvs-psql | awk '{p
 docker run --rm --name jrvs-psql -e POSTGRES_PASSWORD=$PSQL_PASSWORD -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 $PSQL_USER
 sleep 5
 
-psql -h $PSQL_HOST -U $PSQL_USER -f ./sql_ddl/init_db.sql
-psql -h $PSQL_HOST -U $PSQL_USER -d jrvstrading -f ./sql_ddl/schema.sql
+psql -h $PSQL_HOST -U $PSQL_USER -f ../psql/sql_ddl/init_db.sql
+psql -h $PSQL_HOST -U $PSQL_USER -d jrvstrading -f ../psql/sql_ddl/schema.sql
 
 #run springboot app
 /usr/bin/java -jar ../target/trading-1.0-SNAPSHOT.jar
