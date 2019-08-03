@@ -36,7 +36,6 @@ public class DashboardController {
     }
   }
 
-
   @ResponseStatus(HttpStatus.OK)
   @ResponseBody
   @PostMapping(path = "/profile/traderId/{traderId}",

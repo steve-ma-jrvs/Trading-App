@@ -24,9 +24,8 @@ public class QuoteService {
   }
 
   /**
-   * Helper method. Map a IexQuote to a Quote entity.
-   * Note: `iexQuote.getLatestPrice() == null` if the stock market is closed.
-   * Make sure set a default value for number field(s).
+   * Helper method. Map a IexQuote to a Quote entity. Note: `iexQuote.getLatestPrice() == null` if
+   * the stock market is closed. Make sure set a default value for number field(s).
    */
   public static Quote buildQuoteFromIexQuote(IexQuote iexQuote) {
     Quote quote = new Quote();
@@ -40,10 +39,8 @@ public class QuoteService {
   }
 
   /**
-   * Add a list of new tickers to the quote table. Skip existing ticker(s).
-   *  - Get iexQuote(s)
-   *  - convert each iexQuote to Quote entity
-   *  - persist the quote to db
+   * Add a list of new tickers to the quote table. Skip existing ticker(s). - Get iexQuote(s) -
+   * convert each iexQuote to Quote entity - persist the quote to db
    *
    * @param tickers a list of tickers/symbols
    * @throws ca.jrvs.apps.trading.dao.ResourceNotFoundException if ticker is not found from IEX
@@ -73,13 +70,9 @@ public class QuoteService {
     initQuotes(Collections.singletonList(ticker));
   }
 
-
   /**
-   * Update quote table against IEX source
-   *  - get all quotes from the db
-   *  - foreach ticker get iexQuote
-   *  - convert iexQuote to quote entity
-   *  - persist quote to db
+   * Update quote table against IEX source - get all quotes from the db - foreach ticker get
+   * iexQuote - convert iexQuote to quote entity - persist quote to db
    *
    * @throws ca.jrvs.apps.trading.dao.ResourceNotFoundException if ticker is not found from IEX
    * @throws org.springframework.dao.DataAccessException if unable to retrieve data

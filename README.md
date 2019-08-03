@@ -36,7 +36,17 @@ buying and selling stocks. Front-end and mobile developer could utilize this RES
   - Docker (17.05 or higher which support multi-stage build)
   - IEX token for getting market data (https://iexcloud.io/docs/api/)
 - PSQL init:
+```shell script
+#start docker
+systemctl status docker || systemctl start docker
+#create docker volume to persist db data
+docker volume ls | grep "pgdata" || docker volume create pgdata || sleep 1
+```
 - git clone and mvn build
+```shell script
+sudo yum install -y git
+git clone https://github.com/steve-ma-jrvs/Trading-App.git
+```
 - Start Springboot app using a shell script
   - describe env vars
 - How to consume REST API? (Swagger screenshot and postman with OpenAPI Specification, e.g. http://35.231.122.184:5000/v2/api-docs

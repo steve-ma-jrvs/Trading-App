@@ -43,10 +43,6 @@ public class QuoteDaoIntTest {
     assertFalse(quoteDao.existsById("aapl"));
   }
 
-  String removeWhiteSpaces(String input) {
-    return input.replaceAll("\\s", "");
-  }
-
   @Test
   public void findById() {
     Quote quote = quoteDao.findById(savedQuote.getTicker());
@@ -58,7 +54,6 @@ public class QuoteDaoIntTest {
   public void existsById() {
     assertTrue(quoteDao.existsById(savedQuote.getTicker()));
     assertFalse(quoteDao.existsById("fb"));
-
   }
 
   @Test
