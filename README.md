@@ -70,13 +70,14 @@ localhost:8080/swagger-ui.html
     - {IEX_PUB_TOKEN} : your IEX_TOKEN
 - Consume REST API
   - Swagger-UI interface diagram
-  - Todo
+  ![image1](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/Swagger%20API.png)
   - REST API Implementation
     - By default, Ticker `AAPL` is added in the dailyList
     - We could retrieve the dailyList quote by URL
-    - Todo
+  ![image2](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/REST%20API.png)
 - trading_app docker diagram including:
-    - Diagram Todo
+    - Diagram
+    ![image3](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/DockerHub.png)
     - bridge network
         - create network bridge between SpringBoot app and postgreSQL
     - containers
@@ -151,8 +152,19 @@ Also, it could deposit and withdraw fund from a given account.
     - `SecurityOrderDao`
     - `TraderDao`
 ### SpringBoot
-- webservlet/TomCat and IoC
+- In this app, we use the Tomcat which is the embedded servlet container used by SpringBoot to connect the web.
+- Inversion of Control is a principle which the control of objects or portions of a program is transferred to a container or framework.
+- In SpringBoot, the Spring container will create the objects, wire them together, configure them, and manage their complete lifecycle from creation till destruction.
+
 ### PSQL and IEX
+- PostgreSQL(PSQL) is the database we used in this app.
+- PSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.
+- IEX cloud API(https://iexcloud.io/docs/api/#introduction), the financial data source we used in this app. 
+- The IEX Cloud API is based on REST, has resource-oriented URLs, returns JSON-encoded responses, and returns standard HTTP response codes.
 
 ## Improvements
-- at least 5 improvements
+- No UI frontend design. Swagger UI is great but it has limitation. Could build a customize UI to replace Swagger
+- Could add more services and make the app more varieties
+- No backup data
+- No demo example and navigation
+- Trading stock part is only covered simple calculation (long position), short position is not implemented
