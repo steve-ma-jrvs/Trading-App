@@ -1,22 +1,24 @@
 # Trading App
 ## Overview
-1. [Introduction](#Introduction)
-2. [Quick Start](#Quick-Start)
-3. [REST API Usage](#REST-API-Usage)
-   * [Swagger](#Swagger)
-   * [App controller](#App-controller)
-   * [Quote Controller](#Quote-Controller)
-   * [Trader Controller](#Trader-Controller)
-   * [Order Controller](#Order-Controller)
-   * [Dashboard Controller](#Dashboard-Controller)
-4. [Architecture](#Architecture)
-   * [Component diagram](#Component-diagram)
-   * [Controller layer](#Controller-layer)
-   * [Service layer](#Service-layer)
-   * [Dao layer](#Dao-layer)
-   * [SpringBoot](#SpringBoot)
-   * [PSQL and IEX](#PSQL-and-IEX)
-5. [Improvements](#Improvements)
+- [Trading App](#trading-app)
+  - [Overview](#overview)
+  - [Introduction](#introduction)
+  - [Quick Start](#quick-start)
+  - [REST API Usage](#rest-api-usage)
+    - [Swagger](#swagger)
+    - [App controller](#app-controller)
+    - [Quote Controller](#quote-controller)
+    - [Trader Controller](#trader-controller)
+    - [Order Controller](#order-controller)
+    - [Dashboard controller](#dashboard-controller)
+  - [Architecture](#architecture)
+    - [Component diagram](#component-diagram)
+    - [Controller layer](#controller-layer)
+    - [Service layer](#service-layer)
+    - [Dao layer](#dao-layer)
+    - [SpringBoot](#springboot)
+    - [PSQL and IEX](#psql-and-iex)
+  - [Improvements](#improvements)
 <!-- toc -->
 
 ## Introduction
@@ -122,7 +124,7 @@ Also, it could deposit and withdraw fund from a given account.
 
 ## Architecture
 ### Component diagram
-![image](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/Architecture%20Design.png)
+![image](https://github.com/steve-ma-jrvs/Trading-App/blob/master/images/TradingApp%20Architecture.png)
 ### Controller layer
 - Controllers receive input, and generate output. They would handle the navigation between the different views.
 - In this app, it has 5 controllers in total
